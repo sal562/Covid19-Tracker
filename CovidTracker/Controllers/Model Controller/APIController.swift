@@ -5,6 +5,7 @@
 //  Created by Sal B Amer on 3/23/20.
 //  Copyright © 2020 Sal B Amer. All rights reserved.
 //https://interactive-static.scmp.com/sheet/wuhan/viruscases.json
+// OPTION 2 with images array https://corona.lmao.ninja/countries
 
 import UIKit
 

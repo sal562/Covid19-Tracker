@@ -5,11 +5,17 @@
 //  Created by Sal B Amer on 3/22/20.
 //  Copyright © 2020 Sal B Amer. All rights reserved.
 //
-//https://interactive-static.scmp.com/sheet/wuhan/viruscases.json
+//OPTION 2 plain - https://interactive-static.scmp.com/sheet/wuhan/viruscases.json
+
+// OPTION 2 with images array https://corona.lmao.ninja/countries
 
 import Foundation
 
-struct Entries: Codable {
+// OPTION 1
+/*... */
+/*
+ 
+ struct Entries: Codable {
         var entries: [Entry]
     }
 
@@ -34,6 +40,27 @@ struct Entry: Codable {
         recovered = try container.decode(String.self, forKey: .recovered)
     }
 }
+
+*/
+    // OPTION 2 - NEW
+struct Countries: Codable {
+    var country: String
+    var countryInfo: CountryInfo
+    var cases: Int
+    var todayCases: Int
+    var deaths: Int
+    var todayDeaths: Int
+    var recovered: Int
+    var active: Int
+    var critical: Int
+    var casesPerOneMillion: Int
+    var deathsPerOneMillion: Int
     
-    
+    struct CountryInfo: Codable {
+        var flag: URL
+        private enum CodingKeys: String, CodingKey {
+            case flag
+        }
+    }
+}
     
