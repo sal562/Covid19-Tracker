@@ -17,12 +17,16 @@ enum HTTPMethod: String {
 }
 
 class APIController {
-    let baseURL = URL(string: "https://interactive-static.scmp.com/sheet/wuhan/viruscases.json")!
+//    let baseURL = URL(string: "https://interactive-static.scmp.com/sheet/wuhan/viruscases.json")!
+     let baseURL = URL(string: "https://corona.lmao.ninja/countries")!
     
     typealias CompletionHandler = (Error?) -> Void
     
     //  fetch results and put them in an array
-    var results: [Entry] = []
+//    var results: [Entry] = [] - v1
+    var entries = [Entry]()
+    
+//    var results = Entry.self
     
     // fetch results from API
     func fetchResults(completion: @escaping CompletionHandler = { _ in }) {
@@ -48,9 +52,9 @@ class APIController {
             }
             // do try block
             do {
-                let fetchedResults = try JSONDecoder().decode(Entries.self, from: data)
-                for result in fetchedResults.entries {
-                    self.results.append(result)
+                let fetchedResults = try JSONDecoder().decode([Entry].self, from: data)
+                for result in fetchedResults {
+                    self.entries.append(result)
                 }
                 DispatchQueue.main.async {
                     completion(nil)

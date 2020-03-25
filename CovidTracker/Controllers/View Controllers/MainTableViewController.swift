@@ -31,14 +31,14 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return apiController.results.count
+        return apiController.entries.count
     }
 
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CovidCountriesCell", for: indexPath) as? CovidEntryTableViewCell else { return UITableViewCell()}
 
-        let result = apiController.results[indexPath.row]
+        let result = apiController.entries[indexPath.row]
         cell.results = result
         return cell
     }
