@@ -43,55 +43,6 @@ struct Entry: Codable {
 
 */
     // OPTION 2 - NEW
-//struct Countries: Codable {
-//    var country: String
-//    var countryInfo: CountryInfo
-//    var cases: Int
-//    var todayCases: Int
-//    var deaths: Int
-//    var todayDeaths: Int
-//    var recovered: Int
-//    var active: Int
-//    var critical: Int
-//    var casesPerOneMillion: Int
-//    var deathsPerOneMillion: Int
-//
-//     enum CountryKeys: String, CodingKey {
-//        case country
-//        case countryInfo
-//        case cases
-//        case todayCases
-//        case deaths
-//        case todayDeaths
-//        case recovered
-//        case active
-//        case critical
-//        case casesPerOneMillion
-//        case deathsPerOneMillion
-//
-//
-//    }
-//
-//    struct CountryInfo: Codable {
-//        var flag: URL
-//        private enum CodingKeys: String, CodingKey {
-//            case flag
-//        }
-//
-//        init(from decoder: Decoder) throws {
-//            let flagContainer = try decoder.container(keyedBy: CodingKeys.self)
-//            flag = try flagContainer.decode(URL.self, forKey: .flag)
-//            let container = try decoder.container(keyedBy: CountryKeys.self)
-//            country = try container.decode(String.self, forKey: .country)
-//
-//
-//      }
-//    }
-//}
-    
-//OPTION 3 - COMBINE
-
-
 //struct CountryInfo: Decodable {
 //    var flag: String
 //}
@@ -141,21 +92,5 @@ struct Entry: Decodable {
         
        }
   
-
-
-    
-//        init(from decoder: Decoder) throws {
-//            let values = try decoder.container(keyedBy: CodingKeys.self)
-////            iso2 = try values.decode(String.self, forKey: .iso2)
-////            iso3 = try values.decode(String.self, forKey: .iso3)
-////            Id = try values.decode(Int.self, forKey: .Id)
-////            lat = try values.decode(Int.self, forKey: .lat)
-////            long = try values.decode(Int.self, forKey: .long)
-//            flag = try values.decode(String.self, forKey: .flag)
-//        }
-
-//    }
-    
-
-
+ 
 
