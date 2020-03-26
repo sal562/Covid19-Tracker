@@ -36,7 +36,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALU-ph-Br4">
-                                            <rect key="frame" x="19.5" y="25" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="25" width="414" height="100"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZf-vJ-CRX">
                                                     <rect key="frame" x="25" y="40" width="55.5" height="20.5"/>
@@ -45,7 +45,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LKh-Wf-GuI">
-                                                    <rect key="frame" x="266.5" y="5" width="88.5" height="90"/>
+                                                    <rect key="frame" x="305.5" y="5" width="88.5" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Cases:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQx-xl-Lmc">
                                                             <rect key="frame" x="37.5" y="0.0" width="51" height="28.5"/>
@@ -70,8 +70,8 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="375" id="1A9-mA-WMK"/>
                                                 <constraint firstAttribute="bottom" secondItem="LKh-Wf-GuI" secondAttribute="bottom" constant="5" id="AkU-S7-Uvu"/>
+                                                <constraint firstAttribute="width" constant="414" id="COc-UV-58U"/>
                                                 <constraint firstAttribute="trailing" secondItem="LKh-Wf-GuI" secondAttribute="trailing" constant="20" id="IL0-4B-izL"/>
                                                 <constraint firstAttribute="height" constant="100" id="TfD-qq-EX5"/>
                                                 <constraint firstItem="UZf-vJ-CRX" firstAttribute="leading" secondItem="ALU-ph-Br4" secondAttribute="leading" constant="25" id="dwX-Wq-gPz"/>

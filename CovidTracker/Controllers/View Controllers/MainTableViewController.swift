@@ -17,15 +17,16 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
     // search bar
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let searchController = UISearchController(searchResultsController: nil)
+//    let searchController = UISearchController(searchResultsController: nil)
    
     // Conform to UISearchResultsUpdating
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchString = searchController.searchBar.text
-//        currentArray = apiController.entries.filter({ () -> Bool in
-//            <#code#>
-//        })
-        // filtered array for matching countries only
+   func updateSearchResults(for searchController: UISearchController) {
+    guard let searchString = searchController.searchBar.text else { return }
+//       // filtered array for matching countries only
+       let currentArray = apiController.entries.filter({ country -> Bool in
+       return country.country.contains(searchString)
+       })
+      tableView.reloadData()
     }
     
     // Search Bar Function
@@ -44,20 +45,20 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
     }
     
     // if cancel reset tableview results
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        apiController.fetchResults { (_) in
-                  DispatchQueue.main.async {
-                      self.tableView.reloadData()
-                  }
-              }
-    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        apiController.fetchResults { (_) in
+//                  DispatchQueue.main.async {
+//                      self.tableView.reloadData()
+//                  }
+//              }
+//    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        apiController.fetchResults { (_) in
+        currentArray.fetchResults { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
