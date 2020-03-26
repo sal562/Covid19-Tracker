@@ -8,7 +8,26 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    // search bar
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    // Search Bar Function
+    func setupSearchBar() {
+//        searchBar.delegate = self // another way to do it.. option 1 was setting delegate via storyboard
+        
+    }
+    
+    // search bar feature - Add textDidChange & selectedScopeButtonIndexDidChange
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        <#code#>
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        <#code#>
+    }
+    
     
     let apiController = APIController()
 
