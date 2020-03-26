@@ -21,12 +21,7 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
    
     // Conform to UISearchResultsUpdating
    func updateSearchResults(for searchController: UISearchController) {
-    guard let searchString = searchController.searchBar.text else { return }
-//       // filtered array for matching countries only
-       let currentArray = apiController.entries.filter({ country -> Bool in
-       return country.country.contains(searchString)
-       })
-      tableView.reloadData()
+    
     }
     
     // Search Bar Function
@@ -37,7 +32,13 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
     
     // search bar feature - Add textDidChange & selectedScopeButtonIndexDidChange
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-         
+        guard !searchText.isEmpty else { currentArray = apiController; return   }
+//        guard let searchString = searchController.searchBar.text else { return }
+        //       // filtered array for matching countries only
+        let currentArray = apiController.entries.filter({ country -> Bool in
+            return country.country.contains(searchText)
+               })
+              tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -45,13 +46,13 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
     }
     
     // if cancel reset tableview results
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        apiController.fetchResults { (_) in
-//                  DispatchQueue.main.async {
-//                      self.tableView.reloadData()
-//                  }
-//              }
-//    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        apiController.fetchResults { (_) in
+                  DispatchQueue.main.async {
+                      self.tableView.reloadData()
+                  }
+              }
+    }
     
     
     
