@@ -8,10 +8,25 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController, UISearchBarDelegate {
+class MainTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
+    
+    let apiController = APIController()
+    var currentArray = APIController() // Update tableview
+ 
     
     // search bar
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    let searchController = UISearchController(searchResultsController: nil)
+   
+    // Conform to UISearchResultsUpdating
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchString = searchController.searchBar.text
+//        currentArray = apiController.entries.filter({ () -> Bool in
+//            <#code#>
+//        })
+        // filtered array for matching countries only
+    }
     
     // Search Bar Function
     func setupSearchBar() {
@@ -21,16 +36,24 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate {
     
     // search bar feature - Add textDidChange & selectedScopeButtonIndexDidChange
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
+         
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        <#code#>
+         
+    }
+    
+    // if cancel reset tableview results
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        apiController.fetchResults { (_) in
+                  DispatchQueue.main.async {
+                      self.tableView.reloadData()
+                  }
+              }
     }
     
     
-    let apiController = APIController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,14 +73,16 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return apiController.entries.count
+//        return apiController.entries.count
+        return currentArray.entries.count // changed for filtering
     }
 
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CovidCountriesCell", for: indexPath) as? CovidEntryTableViewCell else { return UITableViewCell()}
 
-        let result = apiController.entries[indexPath.row]
+//        let result = apiController.entries[indexPath.row] // removed to implement search function
+        let result = currentArray.entries[indexPath.row]
         cell.results = result
         return cell
     }
