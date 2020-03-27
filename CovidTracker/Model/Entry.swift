@@ -44,63 +44,106 @@ struct Entry: Codable {
 */
     // OPTION 2 - NEW
 
-
-struct CountryInfo: Decodable {
-    var flag: String
-}
-
-
-struct Entry: Decodable {
-    let countryInfo: [CountryInfo]
-    let country: String
-    let cases: Int
-    let todayCases: String
-    let deaths: Int
-    let todayDeaths: String
-    let recovered: Int
-    let active: String
-    let critical: String
-    let casesPerOneMillion: String
-    let deathsPerOneMillion: String
-
-
-    enum CodingKeys: String, CodingKey {
-        case country
-        case CountryInfo
-        case cases
-        case todayCases
-        case deaths
-        case todayDeaths
-        case recovered
-        case active
-        case critical
-        case casesPerOneMillion
-        case deathsPerOneMillion
-        
-        enum flagKeys: String, CodingKey {
-            case flag
-        }
-      }
-    
-
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            country = try container.decode(String.self, forKey: .country)
-            cases = try container.decode(Int.self, forKey: .cases)
-            todayCases = try container.decode(String.self, forKey: .todayCases)
-            deaths = try container.decode(Int.self, forKey: .deaths)
-            todayDeaths = try container.decode(String.self, forKey: .todayDeaths)
-            recovered = try container.decode(Int.self, forKey: .recovered)
-            active = try container.decode(String.self, forKey: .active)
-            critical = try container.decode(String.self, forKey: .critical)
-            casesPerOneMillion = try container.decode(String.self, forKey: .casesPerOneMillion)
-            deathsPerOneMillion = try container.decode(String.self, forKey: .deathsPerOneMillion)
-            countryInfo = try container.decode([CountryInfo].self, forKey: .CountryInfo)
-            
-            let flagContainer = try decoder.container(keyedBy: CodingKeys.flagKeys.self)
-            let flag = try flagContainer.decode(String.self, forKey: .flag)
-        }
-       }
-  
+//struct CountryInfo: Decodable {
+//        let flag: String
+//    }
+//
+//struct Entry: Decodable {
+//    let countryInfo: CountryInfo
+//    let country: String
+//    let cases: Int
+//    let todayCases: Int
+//    let deaths: Int
+//    let todayDeaths: Int
+//    let recovered: Int
+//    let active: Int
+//    let critical: Int
+//    let casesPerOneMillion: Int
+//    let deathsPerOneMillion: Int
+//
+//
+//    enum CodingKeys: String, CodingKey {
+//        case country
+//        case countryInfo
+//        case cases
+//        case todayCases
+//        case deaths
+//        case todayDeaths
+//        case recovered
+//        case active
+//        case critical
+//        case casesPerOneMillion
+//        case deathsPerOneMillion
+//
+//        enum CountryInfoKeys: String, CodingKey {
+//            case flag
+//        }
+//      }
+//
+//
+//        init(from decoder: Decoder) throws {
+//            let container = try decoder.container(keyedBy: CodingKeys.self)
+//            country = try container.decode(String.self, forKey: .country)
+//            cases = try container.decode(Int.self, forKey: .cases)
+//            todayCases = try container.decode(Int.self, forKey: .todayCases)
+//            deaths = try container.decode(Int.self, forKey: .deaths)
+//            todayDeaths = try container.decode(Int.self, forKey: .todayDeaths)
+//            recovered = try container.decode(Int.self, forKey: .recovered)
+//            active = try container.decode(Int.self, forKey: .active)
+//            critical = try container.decode(Int.self, forKey: .critical)
+//            casesPerOneMillion = try container.decode(Int.self, forKey: .casesPerOneMillion)
+//            deathsPerOneMillion = try container.decode(Int.self, forKey: .deathsPerOneMillion)
+//            countryInfo = try container.decode(CountryInfo.self, forKey: .countryInfo)
+//
+//            let flagContainer = try decoder.container(keyedBy: CodingKeys.CountryInfoKeys.self)
+//
+//            var flag = try flagContainer.decode(String.self, forKey: .flag)
+//        }
+//       }
+//
  
 
+struct Entry: Codable {
+
+    let country: String
+    let countryInfo: CountryInfo
+    let cases: Int
+    let todayCases: Int
+    let deaths: Int
+    let todayDeaths: Int
+    let recovered: Int
+    let active: Int
+    let critical: Int
+//    let casesPerOneMillion: Double?
+//    let deathsPerOneMillion: Double?
+
+    private enum CodingKeys: String, CodingKey {
+        case country = "country"
+        case countryInfo = "countryInfo"
+        case cases = "cases"
+        case todayCases = "todayCases"
+        case deaths = "deaths"
+        case todayDeaths = "todayDeaths"
+        case recovered = "recovered"
+        case active = "active"
+        case critical = "critical"
+//        case casesPerOneMillion = "casesPerOneMillion"
+//        case deathsPerOneMillion = "deathsPerOneMillion"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        country = try values.decode(String.self, forKey: .country)
+        countryInfo = try values.decode(CountryInfo.self, forKey: .countryInfo)
+        cases = try values.decode(Int.self, forKey: .cases)
+        todayCases = try values.decode(Int.self, forKey: .todayCases)
+        deaths = try values.decode(Int.self, forKey: .deaths)
+        todayDeaths = try values.decode(Int.self, forKey: .todayDeaths)
+        recovered = try values.decode(Int.self, forKey: .recovered)
+        active = try values.decode(Int.self, forKey: .active)
+        critical = try values.decode(Int.self, forKey: .critical)
+//        casesPerOneMillion = try values.decode(Double.self, forKey: .casesPerOneMillion)
+//        deathsPerOneMillion = try values.decode(Double.self, forKey: .deathsPerOneMillion)
+    }
+
+}

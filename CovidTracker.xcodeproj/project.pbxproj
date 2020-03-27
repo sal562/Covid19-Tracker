@@ -17,6 +17,7 @@
 		E011CC1A24289BE400D4C2ED /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E011CC1924289BE400D4C2ED /* MainTableViewController.swift */; };
 		E011CC1C24289C0300D4C2ED /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E011CC1B24289C0300D4C2ED /* DetailsViewController.swift */; };
 		E011CC1E24289C5E00D4C2ED /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E011CC1D24289C5E00D4C2ED /* APIController.swift */; };
+		E064D775242E28A800CD1011 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D774242E28A800CD1011 /* CountryInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E011CC1924289BE400D4C2ED /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		E011CC1B24289C0300D4C2ED /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E011CC1D24289C5E00D4C2ED /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		E064D774242E28A800CD1011 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E011CC102428948400D4C2ED /* Entry.swift */,
+				E064D774242E28A800CD1011 /* CountryInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				E011CC112428948400D4C2ED /* Entry.swift in Sources */,
 				E011CC18242899A700D4C2ED /* CovidEntryTableViewCell.swift in Sources */,
 				E011CBFD242893C600D4C2ED /* AppDelegate.swift in Sources */,
+				E064D775242E28A800CD1011 /* CountryInfo.swift in Sources */,
 				E011CC1C24289C0300D4C2ED /* DetailsViewController.swift in Sources */,
 				E011CC1A24289BE400D4C2ED /* MainTableViewController.swift in Sources */,
 				E011CBFF242893C600D4C2ED /* SceneDelegate.swift in Sources */,
