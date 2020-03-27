@@ -43,53 +43,63 @@ struct Entry: Codable {
 
 */
     // OPTION 2 - NEW
-//struct CountryInfo: Decodable {
-//    var flag: String
-//}
+
+
+struct CountryInfo: Decodable {
+    var flag: String
+}
+
 
 struct Entry: Decodable {
-//    let countryInfo: [CountryInfo]
+    let countryInfo: [CountryInfo]
     let country: String
     let cases: Int
-//    let todayCases: String
+    let todayCases: String
     let deaths: Int
-//    let todayDeaths: String
+    let todayDeaths: String
     let recovered: Int
-//    let active: String
-//    let critical: String
-//    let casesPerOneMillion: String
-//    let deathsPerOneMillion: String
+    let active: String
+    let critical: String
+    let casesPerOneMillion: String
+    let deathsPerOneMillion: String
 
 
     enum CodingKeys: String, CodingKey {
         case country
-//        case CountryInfo
+        case CountryInfo
         case cases
-//        case todayCases
+        case todayCases
         case deaths
-//        case todayDeaths
+        case todayDeaths
         case recovered
-//        case active
-//        case critical
-//        case casesPerOneMillion
-//        case deathsPerOneMillion
+        case active
+        case critical
+        case casesPerOneMillion
+        case deathsPerOneMillion
+        
+        enum flagKeys: String, CodingKey {
+            case flag
+        }
       }
-
+    
 
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             country = try container.decode(String.self, forKey: .country)
             cases = try container.decode(Int.self, forKey: .cases)
-//            todayCases = try container.decode(String.self, forKey: .todayCases)
+            todayCases = try container.decode(String.self, forKey: .todayCases)
             deaths = try container.decode(Int.self, forKey: .deaths)
-//            todayDeaths = try container.decode(String.self, forKey: .todayDeaths)
+            todayDeaths = try container.decode(String.self, forKey: .todayDeaths)
             recovered = try container.decode(Int.self, forKey: .recovered)
-//            active = try container.decode(String.self, forKey: .active)
-//            critical = try container.decode(String.self, forKey: .critical)
-//            casesPerOneMillion = try container.decode(String.self, forKey: .casesPerOneMillion)
-//            deathsPerOneMillion = try container.decode(String.self, forKey: .deathsPerOneMillion)
+            active = try container.decode(String.self, forKey: .active)
+            critical = try container.decode(String.self, forKey: .critical)
+            casesPerOneMillion = try container.decode(String.self, forKey: .casesPerOneMillion)
+            deathsPerOneMillion = try container.decode(String.self, forKey: .deathsPerOneMillion)
+            countryInfo = try container.decode([CountryInfo].self, forKey: .CountryInfo)
+            
+            let flagContainer = try decoder.container(keyedBy: CodingKeys.flagKeys.self)
+            let flag = try flagContainer.decode(String.self, forKey: .flag)
         }
-        
        }
   
  

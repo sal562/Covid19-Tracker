@@ -8,41 +8,35 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class MainTableViewController: UITableViewController, UISearchBarDelegate {
     
     let apiController = APIController()
-    var currentArray = APIController() // Update tableview
- 
+//    var currentArray = APIController() // Update tableview
+//    var currentArray = [Entry]()
+    var filteredsArray: [APIController] = []
+
+    
     
     // search bar
     @IBOutlet weak var searchBar: UISearchBar!
     
 //    let searchController = UISearchController(searchResultsController: nil)
-   
-    // Conform to UISearchResultsUpdating
-   func updateSearchResults(for searchController: UISearchController) {
     
-    }
-    
-    // Search Bar Function
-    func setupSearchBar() {
-//        searchBar.delegate = self // another way to do it.. option 1 was setting delegate via storyboard
-        
-    }
+ 
     
     // search bar feature - Add textDidChange & selectedScopeButtonIndexDidChange
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else { currentArray = apiController; return   }
-//        guard let searchString = searchController.searchBar.text else { return }
+//        guard !searchText.isEmpty else { currentArray = Entry; return   }
+        guard let searchText = searchBar.text else { return }
         //       // filtered array for matching countries only
-        let currentArray = apiController.entries.filter({ country -> Bool in
-            return country.country.contains(searchText)
-               })
-              tableView.reloadData()
+        let filteredsArray = apiController.entries.filter { (countries) -> Bool in
+            return countries.country.contains(searchText)
+        }
+        tableView.reloadData()
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-         
+
     }
     
     // if cancel reset tableview results
@@ -58,8 +52,15 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        currentArray.fetchResults { (_) in
+        
+        // for search
+//        searchController.searchResultsUpdater = self
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        navigationItem.searchController = searchController
+//        definesPresentationContext = true
+        
+        
+        apiController.fetchResults { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -76,7 +77,7 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 //        return apiController.entries.count
-        return currentArray.entries.count // changed for filtering
+        return apiController.entries.count // changed for filtering
     }
 
  
@@ -84,7 +85,7 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate, UISea
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CovidCountriesCell", for: indexPath) as? CovidEntryTableViewCell else { return UITableViewCell()}
 
 //        let result = apiController.entries[indexPath.row] // removed to implement search function
-        let result = currentArray.entries[indexPath.row]
+        let result = apiController.entries[indexPath.row]
         cell.results = result
         return cell
     }
