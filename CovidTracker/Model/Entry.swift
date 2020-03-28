@@ -42,7 +42,7 @@ struct Entry: Codable {
 }
 
 */
-    // OPTION 2 - NEW
+    // OPTION 2 - Both Models combined ( cannot get rid of errors)
 
 //struct CountryInfo: Decodable {
 //        let flag: String
@@ -101,7 +101,7 @@ struct Entry: Codable {
 //        }
 //       }
 //
- 
+     // OPTION 3 - Both Model Seperated
 
 struct Entry: Codable {
 
@@ -114,8 +114,8 @@ struct Entry: Codable {
     let recovered: Int
     let active: Int
     let critical: Int
-//    let casesPerOneMillion: Double?
-//    let deathsPerOneMillion: Double?
+    let casesPerOneMillion: Double
+    let deathsPerOneMillion: Double
 
     private enum CodingKeys: String, CodingKey {
         case country = "country"
@@ -127,8 +127,8 @@ struct Entry: Codable {
         case recovered = "recovered"
         case active = "active"
         case critical = "critical"
-//        case casesPerOneMillion = "casesPerOneMillion"
-//        case deathsPerOneMillion = "deathsPerOneMillion"
+        case casesPerOneMillion = "casesPerOneMillion"
+        case deathsPerOneMillion = "deathsPerOneMillion"
     }
 
     init(from decoder: Decoder) throws {
@@ -142,8 +142,8 @@ struct Entry: Codable {
         recovered = try values.decode(Int.self, forKey: .recovered)
         active = try values.decode(Int.self, forKey: .active)
         critical = try values.decode(Int.self, forKey: .critical)
-//        casesPerOneMillion = try values.decode(Double.self, forKey: .casesPerOneMillion)
-//        deathsPerOneMillion = try values.decode(Double.self, forKey: .deathsPerOneMillion)
+        casesPerOneMillion = try values.decode(Double.self, forKey: .casesPerOneMillion)
+        deathsPerOneMillion = try values.decode(Double.self, forKey: .deathsPerOneMillion)
     }
 
 }

@@ -29,7 +29,6 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        // Do any additional setup after loading the view.
     }
     
     func updateViews() {
@@ -42,7 +41,8 @@ class DetailsViewController: UIViewController {
         totalDeathsTodayLbl.text = "\(entries.todayDeaths)"
         totalActiveLbl.text = "\(entries.active)"
         totalCriticalLbl.text = "\(entries.critical)"
-//        casesPer1MLbl.text = "\(entries)"
+        casesPer1MLbl.text = "\(entries.casesPerOneMillion)"
+        deathsPer1MLbl.text = "\(entries.deathsPerOneMillion)"
         
         // Get Flag image from URL
         let countryFlagImg = entries.countryInfo.flag
