@@ -45,7 +45,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LKh-Wf-GuI">
-                                                    <rect key="frame" x="305.5" y="5" width="88.5" height="90"/>
+                                                    <rect key="frame" x="260.5" y="5" width="88.5" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Cases:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQx-xl-Lmc">
                                                             <rect key="frame" x="37.5" y="0.0" width="51" height="28.5"/>
@@ -72,7 +72,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="LKh-Wf-GuI" secondAttribute="bottom" constant="5" id="AkU-S7-Uvu"/>
                                                 <constraint firstAttribute="width" constant="414" id="COc-UV-58U"/>
-                                                <constraint firstAttribute="trailing" secondItem="LKh-Wf-GuI" secondAttribute="trailing" constant="20" id="IL0-4B-izL"/>
+                                                <constraint firstAttribute="trailing" secondItem="LKh-Wf-GuI" secondAttribute="trailing" constant="65" id="IL0-4B-izL"/>
                                                 <constraint firstAttribute="height" constant="100" id="TfD-qq-EX5"/>
                                                 <constraint firstItem="UZf-vJ-CRX" firstAttribute="leading" secondItem="ALU-ph-Br4" secondAttribute="leading" constant="25" id="dwX-Wq-gPz"/>
                                                 <constraint firstItem="LKh-Wf-GuI" firstAttribute="top" secondItem="ALU-ph-Br4" secondAttribute="top" constant="5" id="lVE-65-UJf"/>
@@ -142,8 +142,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="5Dg-sv-ids">
-                                <rect key="frame" x="49" y="321" width="316" height="487"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5Dg-sv-ids">
+                                <rect key="frame" x="50" y="321" width="301" height="487"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="G6f-Py-hB5">
                                         <rect key="frame" x="0.0" y="0.0" width="122.5" height="487"/>
@@ -169,9 +169,11 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="83.5" id="F0M-jY-jjv"/>
                                                             <constraint firstItem="RwE-65-cQi" firstAttribute="centerX" secondItem="Zhk-8C-fVv" secondAttribute="centerX" id="Mda-FA-sLm"/>
                                                             <constraint firstItem="RwE-65-cQi" firstAttribute="leading" secondItem="Zhk-8C-fVv" secondAttribute="leading" constant="31" id="MtC-2u-elz"/>
                                                             <constraint firstItem="RwE-65-cQi" firstAttribute="centerY" secondItem="Zhk-8C-fVv" secondAttribute="centerY" id="bA2-XR-Gu9"/>
+                                                            <constraint firstAttribute="width" constant="122.5" id="coU-HT-Mf3"/>
                                                             <constraint firstItem="RwE-65-cQi" firstAttribute="top" secondItem="Zhk-8C-fVv" secondAttribute="top" constant="30" id="tdg-7H-Uch"/>
                                                         </constraints>
                                                     </view>
@@ -229,6 +231,8 @@
                                                             <constraint firstItem="vaC-x1-1GC" firstAttribute="centerY" secondItem="Frh-FA-3Sa" secondAttribute="centerY" id="6Hj-z8-BmO"/>
                                                             <constraint firstItem="vaC-x1-1GC" firstAttribute="centerX" secondItem="Frh-FA-3Sa" secondAttribute="centerX" id="Tdq-Mq-BhL"/>
                                                             <constraint firstItem="vaC-x1-1GC" firstAttribute="top" secondItem="Frh-FA-3Sa" secondAttribute="top" constant="30" id="eWi-jW-eQV"/>
+                                                            <constraint firstAttribute="width" constant="122.5" id="jvY-j2-zny"/>
+                                                            <constraint firstAttribute="height" constant="83.5" id="n4S-rN-zEk"/>
                                                             <constraint firstItem="vaC-x1-1GC" firstAttribute="leading" secondItem="Frh-FA-3Sa" secondAttribute="leading" constant="31" id="v2F-H7-A5r"/>
                                                         </constraints>
                                                     </view>
@@ -268,7 +272,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Us3-1F-gd8">
-                                        <rect key="frame" x="167.5" y="0.0" width="148.5" height="487"/>
+                                        <rect key="frame" x="152.5" y="0.0" width="148.5" height="487"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-H1-yl2" userLabel="Stack View -ttl cases">
                                                 <rect key="frame" x="4.5" y="0.0" width="139.5" height="115"/>
@@ -404,9 +408,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5Dg-sv-ids" firstAttribute="top" secondItem="Wgg-JN-Uv3" secondAttribute="bottom" constant="30" id="1P7-yR-J4y"/>
+                            <constraint firstItem="FC0-EC-XVV" firstAttribute="bottom" secondItem="5Dg-sv-ids" secondAttribute="bottom" constant="54" id="BC5-bM-QZF"/>
+                            <constraint firstItem="5Dg-sv-ids" firstAttribute="leading" secondItem="FC0-EC-XVV" secondAttribute="leading" constant="50" id="NnV-fl-RUI"/>
                             <constraint firstItem="hDs-NZ-RJM" firstAttribute="centerX" secondItem="Vq4-Xj-eri" secondAttribute="centerX" id="PTr-FM-mOL"/>
                             <constraint firstItem="Vq4-Xj-eri" firstAttribute="centerX" secondItem="s9z-M6-8iH" secondAttribute="centerX" id="Pwl-LV-lzO"/>
-                            <constraint firstItem="5Dg-sv-ids" firstAttribute="centerX" secondItem="s9z-M6-8iH" secondAttribute="centerX" id="R8A-31-Ptb"/>
                             <constraint firstItem="Wgg-JN-Uv3" firstAttribute="top" secondItem="hDs-NZ-RJM" secondAttribute="bottom" constant="10" id="SHY-fu-M2G"/>
                             <constraint firstItem="Wgg-JN-Uv3" firstAttribute="centerX" secondItem="hDs-NZ-RJM" secondAttribute="centerX" id="UxC-GH-fMz"/>
                             <constraint firstItem="Vq4-Xj-eri" firstAttribute="top" secondItem="FC0-EC-XVV" secondAttribute="top" constant="40" id="c5w-xS-9UA"/>
